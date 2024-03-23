@@ -1,0 +1,50 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+}
+
+.calculator{
+    display: flex;
+    width: 200px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nums{
+    display: flex;
+    justify-content: center;
+    width: 90px;
+    flex-wrap: wrap;
+    flex: 1 1 0%;
+}
+
+.operators{
+    display: flex;
+    width: 45px;
+    justify-content: center;
+    flex: 1 1 0%;
+    flex-wrap: wrap;
+}
+
+.buttons{
+    display:flex;
+    flex: 1 1 0%;
+}
+
+button{
+    width: 30px;
+    height: 25px;
+}
+
+.operators > button{
+    width: 50px;
+    height: 35px;
+}
+
+.display{
+    width: 200px;
+    height: 100px;
+    border: 2px solid black;
+    text-align: end;
+    align-content: end;
+}
