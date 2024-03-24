@@ -69,7 +69,7 @@ function isOperator(symbol){
 }
 
 function display(value){
-    if(value === ' Clear '){
+    if(value === ' AC '){
         disp.textContent = ''
     }
     else if(value === ' = '){
