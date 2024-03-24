@@ -46,9 +46,19 @@ function splitter(str){
 
 nums.addEventListener('click', (e) =>{
     if(e.target.tagName === 'BUTTON'){
-        let value =''
-        value = e.target.textContent;
-        display(value)
+        let value = e.target.textContent;
+        if(value === '.'){
+            if(!disp.textContent.includes('.')){
+                display(value);
+            }
+            else{
+                console.log('nono')
+            }
+        }
+        else{
+            display(value)
+        }
+        
     }
 });
 
@@ -59,8 +69,19 @@ oprtr.addEventListener('click', (e) =>{
     }
 })
 
+document.addEventListener('keypress', (e) => {
+    if(isOperator(" " + e.key + " ")){
+        display(" " + e.key + " ")
+    }
+    else if (!isNaN(parseInt(e.key, 10))) {
+        display(e.key);
+    } else {
+        console.log('nono');
+    }
+});
+
 function isOperator(symbol){
-    if (symbol === ' + ' ||symbol === ' - ' ||symbol === ' * ' ||symbol === ' / '){
+    if (symbol === ' + ' ||symbol === ' - ' ||symbol === ' * ' ||symbol === ' / ' ||symbol === ' = '){
         return true
     }
     else{
@@ -68,9 +89,14 @@ function isOperator(symbol){
     }    
 }
 
+
+
 function display(value){
     if(value === ' AC '){
         disp.textContent = ''
+    }
+    else if(value ===' CE '){
+        disp.textContent = disp.textContent.slice(0,-1);
     }
     else if(value === ' = '){
         let test = disp.textContent.split(' ')
