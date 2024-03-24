@@ -11,17 +11,10 @@ let term2;
 
 function operate(operator, term1, term2){
     switch(operator){
-        case '+':
-            return add(term1,term2);
-            break;
-        case '-':
-            return subtract(term1,term2);
-            break;
-        case '*':
-            return multiply(term1, term2);
-            break;
-        case '/':
-            return divide(term1,term2);
+        case '+': return add(term1,term2);
+        case '-': return subtract(term1,term2);
+        case '*': return multiply(term1, term2);
+        case '/': return divide(term1,term2);
     }
 }
 
@@ -43,9 +36,7 @@ function divide(a,b){
 }
 
 function splitter(str){
-    console.log(str);
     let arr = str.split(' ');
-    console.log(arr[0])
     let a = arr[1];
     let b = arr[0];
     let c = arr[2];
@@ -61,24 +52,44 @@ nums.addEventListener('click', (e) =>{
     }
 });
 
+
 oprtr.addEventListener('click', (e) =>{
     if(e.target.tagName === 'BUTTON'){
         display(" " + e.target.textContent + " ")
     }
 })
 
+function isOperator(symbol){
+    if (symbol === ' + ' ||symbol === ' - ' ||symbol === ' * ' ||symbol === ' / '){
+        return true
+    }
+    else{
+        return false
+    }    
+}
+
 function display(value){
     if(value === ' Clear '){
         disp.textContent = ''
     }
     else if(value === ' = '){
-        disp.textContent = splitter(disp.textContent)
-        
+        let test = disp.textContent.split(' ')
+        if(test.length === 3){
+            disp.textContent = splitter(disp.textContent)
+        }      
+    }
+    else if(isOperator(value)){
+        let test = disp.textContent.split(' ')
+        if(test.length === 3){
+            disp.textContent = splitter(disp.textContent) + value
+        }
+        else{
+            disp.textContent += value;
+        }
     }
     else{
         disp.textContent += value;
     }
-    
 }
 
 
